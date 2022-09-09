@@ -27,6 +27,7 @@ if(isset($_GET['campo_pesquisa'])){
     <link rel="stylesheet" href="./assets/css/estilo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/pesquisa.js"></script>
     <title>Armário</title>
 </head>
 
@@ -56,12 +57,10 @@ if(isset($_GET['campo_pesquisa'])){
         </ul>
     </div>
     <div class="container fundo">
-        <form>
-            <div class="campo-pesquisa">
-                <input type="text" placeholder="Digite sua pesquisa aqui" class="form-control" name="campo_pesquisa"/>
-                <button type="submit" class="btn btn-primary botao-pesquisa">Pesquisar</button>
-            </div>
-        </form>
+        <div class="campo-pesquisa">
+            <input type="text" placeholder="Digite sua pesquisa aqui" class="form-control" name="campo_pesquisa" id="pesquisa"/>
+            <button type="submit" class="btn btn-primary botao-pesquisa">Pesquisar</button>
+        </div>
         <div class="lista">
             <table class="table table-striped">
                 <thead>
@@ -71,24 +70,12 @@ if(isset($_GET['campo_pesquisa'])){
                     <th>Descrição</th>
                     <th>Opções</th>
                 </thead>
-                <tbody>
-                    <?php foreach ($armarios as $armario) : ?>
-                        <tr>
-                            <td><?php echo $armario['data_criacao']  ?></td>
-                            <td><?php echo $armario['usuario_responsavel']  ?></td>
-                            <td><?php echo $armario['status']  ?></td>
-                            <td><?php echo $armario['descricao']  ?></td>
-                            <td>
-                                <a href="#" class="btn btn-warning">Editar</a>
-                                <a href="#" class="btn btn-danger">Desativar</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                <tbody id="lista">
+                    
                 </tbody>
             </table>
         </div>
         <a href="./armario/cadastrar.php" class="btn btn-success botao-cadastrar">Cadastrar</a>
     </div>
 </body>
-
 </html>

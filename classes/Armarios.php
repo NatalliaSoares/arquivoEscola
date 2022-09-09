@@ -52,12 +52,24 @@ class Armarios
     global $db;
     
     $sql = "SELECT * FROM armario WHERE descricao LIKE :descricao";
-    $sql = $db -> prepare($sql);
+    $sql = $db->prepare($sql);
     $sql->bindValue(":descricao", "%" . $pesquisa . "%");
+    $sql -> execute();
+    
+    $armarios = $sql->fetchAll();
+
+    return $armarios;
+  }
+
+  public function listar_todos()
+  {
+    global $db;
+
+    $sql = "SELECT * FROM armario";
+    $sql = $db->prepare($sql);
     $sql -> execute();
 
     $armarios = $sql->fetchAll();
-
     return $armarios;
   }
 }
