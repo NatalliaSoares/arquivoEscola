@@ -24,15 +24,14 @@ body{
 .fundo-login{
     display: flex;
     flex-direction: column;
-    position: relative;
     background-color: white;
     max-width: 600px;
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     margin: auto;
-    justify-content: center;
     align-items: center;    
+    margin-top: 100px;
 }
 
 .titulo{

@@ -7,5 +7,4 @@ $a = new Armarios();
 $retorno = $a->pesquisar($texto);
 
 echo json_encode($retorno);
-
 ?>

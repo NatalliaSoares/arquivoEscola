@@ -27,6 +27,8 @@ function pesquisa(palavra){
             html+= "<td>"+(json[i]['usuario_responsavel'])+"</td>";
             html+= "<td>"+(json[i]['status'])+"</td>";
             html+= "<td>"+(json[i]['descricao'])+"</td>";
+            html+= "<td><a href='armario/editar.php?id="+(json[i]['id'])+"' class='btn btn-warning'>Editar</a></td>";
+            html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"'class=' btn btn-danger'>Desativar</a></td>";
             
            html+= "</tr>";
            }
@@ -57,10 +59,8 @@ function listar(){
                 html+= "<td>"+(json[i]['usuario_responsavel'])+"</td>";
                 html+= "<td>"+(json[i]['status'])+"</td>";
                 html+= "<td>"+(json[i]['descricao'])+"</td>";
-                html+= "<td><a href='editar.php?id="+(json[i]['id'])+"' class='btn btn-warning'>Editar</a></td>";
-                html+= "<td><a href='desativar.php?id="+(json[i]['id'])+"' class='btn btn-danger'>Desativar</a></td>";
-            
-
+                html+= "<td><a href='armario/editar.php?id="+(json[i]['id'])+"' class='btn btn-warning'>Editar</a></td>";
+                html+= "<td><a href='armario/desativar.php?id="+(json[i]['id'])+"&status="+(json[i]['status'])+"' class=' btn btn-danger'>Desativar</a></td>";
 
                 html+="</tr>";
 

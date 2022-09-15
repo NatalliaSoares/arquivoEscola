@@ -45,6 +45,49 @@ class Armarios
   // DEVE ALTERAR O CAMPO STATUS DA TABELA ARMARIO PARA O VALOR 0
   public function desativar($id)
   {
+    global $db;
+
+    $id=$_GET['id'];
+    $status=$_GET['status'];
+
+    if($status != '0'){
+      $sql = "UPDATE armario SET status = '0' WHERE  id=:id";
+  
+      $sql=$db->prepare($sql);
+      $sql->bindValue(":id", $id);
+      $sql->execute();  
+      
+      header("Location: ../armario.php");
+    }elseif($status != '1') {
+      $sql = "UPDATE armario SET status = '1' WHERE  id=:id";
+  
+      $sql=$db->prepare($sql);
+      $sql->bindValue(":id", $id);
+      $sql->execute(); 
+      
+      header("Location: ../armario.php");
+    }
+    $armarios = $sql->fetchAll();
+    return $armarios;
+  }
+
+  public function editar($descricao)
+  {
+    global $db;
+    $id=$_GET['id'];
+
+    $sql = "UPDATE armario SET descricao = :descricao WHERE  id=:id";
+
+    $sql=$db->prepare($sql);
+    $sql->bindValue(":descricao", $descricao);
+    $sql->bindValue(":id", $id);
+    $sql->execute();
+
+    if($sql){
+      header("Location: ../armario.php");
+    }
+    $armarios = $sql->fetchAll();
+    return $armarios;
   }
 
   public function pesquisar($pesquisa)
